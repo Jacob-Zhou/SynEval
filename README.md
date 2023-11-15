@@ -6,7 +6,7 @@ __Houquan Zhou__, Yang Hou, Zhenghua Li, Xuebin Wang, Zhefeng Wang, Xinyu Duan, 
 </div>
 
 ## TL;DR
-This repository contains the code and data for the paper [How Well Do Large Language Models Understand Syntax? An Evaluation by Asking Natural Language Questions](https://arxiv.org).
+This repository contains the code and data for the paper [How Well Do Large Language Models Understand Syntax? An Evaluation by Asking Natural Language Questions](https://arxiv.org/abs/2311.08287).
 
 ## Setup
 
@@ -125,3 +125,15 @@ Move the `super().__init__(*)` call in each file to a point after the initializa
 
 Otherwise, you can downgrade the transformers library to version 4.33.0.
 However, this version does not support `mistralai/Mistral-7B-v0.1` and `mistralai/Mistral-7B-Instruct-v0.1`.
+
+## Citation
+```bibtex
+@misc{zhou2023large,
+      title={How Well Do Large Language Models Understand Syntax? An Evaluation by Asking Natural Language Questions}, 
+      author={Houquan Zhou and Yang Hou and Zhenghua Li and Xuebin Wang and Zhefeng Wang and Xinyu Duan and Min Zhang},
+      year={2023},
+      eprint={2311.08287},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
