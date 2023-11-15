@@ -20,6 +20,7 @@ Then you can use following commands to create an environment and install the dep
 . scripts/set_environment.sh
 ```
 
+## Data Generation
 To generate the data for the experiments, you should first download the [Penn Treebank 3](https://catalog.ldc.upenn.edu/LDC99T42) datasets and put the `LDC1999T42/PARSED/MRG/WSJ` folder into the `data` folder.
 The `data` folder should have the following structure:
 ```sh
@@ -28,6 +29,8 @@ data
     ├── 00
     │   ├── WSJ_0000.MRG
     │   ├── WSJ_0001.MRG
+    │   ...
+    │   └── WSJ_0099.MRG
     ...
     └── 24
         ├── WSJ_2400.MRG
@@ -125,6 +128,19 @@ Move the `super().__init__(*)` call in each file to a point after the initializa
 
 Otherwise, you can downgrade the transformers library to version 4.33.0.
 However, this version does not support `mistralai/Mistral-7B-v0.1` and `mistralai/Mistral-7B-Instruct-v0.1`.
+
+## How to Expand the Framework
+
+Our framework, inspired by Python's UnitTest, allows for easy expansion in extracting syntactic knowledge and generating questions. It automatically recognizes and uses functions that start with `extract_` and `generate_` in the `extractions` and `question_generators` folders.
+
+1. **For Extraction or Question Generation:**
+   - Create a new file in the corresponding folder (`extractions` or `question_generators`).
+   - In this file, define a class that inherits from `TreeExtraction` or `QuestionGeneration`.
+   - Implement the `extract` or `generate` method in your class.
+
+2. **Finalizing Your Addition:**
+   - Once you've added your new class, run the `build.sh` script.
+   - This script integrates your new method into the framework.
 
 ## Citation
 ```bibtex
