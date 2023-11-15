@@ -1,7 +1,7 @@
 <div align="center">
 
 # How Well Do Large Language Models Understand Syntax? An Evaluation by Asking Natural Language Questions
-__Houquan Zhou__, Yang Hou, Zhenghua Li, Xuebin Wang, Zhefeng Wang, Xinyu Duan, Min Zhang
+Houquan Zhou, Yang Hou, Zhenghua Li, Xuebin Wang, Zhefeng Wang, Xinyu Duan, Min Zhang
 
 </div>
 
@@ -49,9 +49,11 @@ The question will be in the json format.
 The format of the question is as follows:
 ```json
 {
+    "sentence": "I am Batman.",
     "question": "In the above sentence, the grammatical subject of `am` is ____________.",
     "answer": "I",
     "type": "fill_in_the_blank",
+    "knowledge_point": "surface_subject",
     "tags": [
         "subtype:normal_clause",
         "surface_subject:pronoun",
@@ -62,11 +64,9 @@ The format of the question is as follows:
         "<XX>-<Y.Z>"
     ],
     "question_template": "In the above sentence, the grammatical subject of `{verb_phrase}` is ____________.",
-    "md5": "...",
-    "knowledge_point": "surface_subject",
-    "sentence": "I am Batman.",
     "generation_method": "generate_surface_subject_question_by_verb_phrase",
-    "id": 123456
+    "id": 123456,
+    "md5": "..."
 }
 ```
 
