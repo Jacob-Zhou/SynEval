@@ -25,18 +25,18 @@ To generate the data for the experiments, you should first download the [Penn Tr
 The `data` folder should have the following structure:
 ```sh
 data
-└── WSJ
-    ├── 00
-    │   ├── WSJ_0000.MRG
-    │   ├── WSJ_0001.MRG
-    │   ...
-    │   └── WSJ_0099.MRG
-    ...
-    └── 24
-        ├── WSJ_2400.MRG
-        ├── WSJ_2401.MRG
-        ...
-        └── WSJ_2454.MRG
+ └── WSJ
+     ├── 00
+     │   ├── WSJ_0000.MRG
+     │   ├── WSJ_0001.MRG
+     │   ...
+     │   └── WSJ_0099.MRG
+     ...
+     └── 24
+         ├── WSJ_2400.MRG
+         ├── WSJ_2401.MRG
+         ...
+         └── WSJ_2454.MRG
 ```
 
 Then you can run the following command to generate the data for the experiments:
@@ -95,6 +95,29 @@ python test.py \
     --max-eval-instances None \     #   (Optional) Maximum number of instances to evaluate on.
     --dry-run                       #   (Optional) Dry run, do not actually request model.
 ```
+
+### Where to Find the Results
+After running an experiment, you'll find all the results in the `exp` folder. The specific path for these results is organized as follows:
+
+`exp/<model_name>/<suite>/<sample_size>/<senarios>/seed-<seed>/`
+
+Inside this path, you'll encounter several files, each serving a specific purpose in documenting the experiment's details and outcomes.
+Here’s what you can expect:
+
+```sh
+<path-to-results>
+ ├── args.json         # Arguments used for running the experiment.
+ ├── code_diff.txt     # Differences in the code compared to the git revision.
+ ├── code_status.txt   # Status of the code relative to the git revision.
+ ├── code_version.txt  # Git revision identifier of the code used.
+ ├── exemplars.json    # Exemplars (examples) used during the experiment.
+ ├── test_set.json     # Complete test set the experiment was conducted on.
+ ├── predictions.json  # Model’s predictions generated in the experiment.
+ ├── results.txt       # Summary of the experimental results.
+ └── timestamp.txt     # Timestamp marking when the experiment was conducted.
+```
+
+<hr>
 
 We also provide the scripts to run the experiments all at once.
 
