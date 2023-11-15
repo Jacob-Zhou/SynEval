@@ -63,7 +63,7 @@ The format of the question is as follows:
     "knowledge_point": "surface_subject",
     "sentence": "I am Batman.",
     "generation_method": "generate_surface_subject_question_by_verb_phrase",
-    "id": xxxxxxx
+    "id": 123456
 }
 ```
 
@@ -115,11 +115,13 @@ bash run_all.sh
 ```sh
 bash run_baichuan_revision.sh
 ```
-If you meet the error `AttributeError: 'BaiChuanTokenizer' object has no attribute 'sp_model'`, please refer to the [IMPORTANT NOTE !!!](#IMPORTANT-NOTE-!!!) section.
+If you meet the error `AttributeError: 'BaiChuanTokenizer' object has no attribute 'sp_model'`, please refer to the [IMPORTANT NOTE !!!](#important-note-) section.
 
 ## IMPORTANT NOTE !!!
-In the Transformers library, version 4.34.0.dev0 or later, an error may be raised if you use `Baichuan` or `ChatGLM`. 
+In the Transformers library, version 4.34.0.dev0 or later, an error may be raised if you use `Baichuan` or `ChatGLM`.
+
 To resolve this, you should modify the tokenization_baichuan.py and tokenization_chatglm.py files. 
 Move the `super().__init__(*)` call in each file to a point after the initialization of `self.tokenizer` in tokenization_baichuan.py and `self.sp_model` in tokenization_chatglm.py, respectively.
+
 Otherwise, you can downgrade the transformers library to version 4.33.0.
 However, this version does not support `mistralai/Mistral-7B-v0.1` and `mistralai/Mistral-7B-Instruct-v0.1`.
